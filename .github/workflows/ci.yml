@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-      - run: npm install --global @dev-centr/themed-svg@0.2.0
+      - run: npm install --global @dev-centr/themed-svg@0.2.1
       - run: dub test -c unittest
       - run: dub build -c cli --build=release
       - run: dub build -c gui-headless --build=release

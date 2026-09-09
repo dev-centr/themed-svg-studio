@@ -55,7 +55,7 @@ exports:
 
 [source,powershell]
 ----
-npm install --global @dev-centr/themed-svg@0.2.0
+npm install --global @dev-centr/themed-svg@0.2.1
 ----
 
 == CLI
