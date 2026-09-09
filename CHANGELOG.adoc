@@ -1,0 +1,24 @@
+= Changelog
+
+This timeline records user-visible changes to Themed SVG Studio.
+
+== Unreleased
+
+== 0.1.0 — 2026-09-09
+
+* Added a native D library, CLI, and DUI-based GUI configurations with TGC,
+  using the released DUI 0.1.4 and Dew 0.1.7 dependency chain.
+* Added semantic token, preset, palette, binding, diagnostics, dirty-state,
+  open/save/export, and DUI undo/redo models, plus editable token-value and
+  presentation-binding controls.
+* Added the isolated protocol-v1 JSON/JSONL message and process boundary for
+  inspect, validate, transform, sanitize, and export operations, verified
+  against `@dev-centr/themed-svg` 0.2.0.
+* Added source, fixed, light, dark, standalone-adaptive, and host preview modes.
+* Added About, Help, redacted debug dump, and honest update-status surfaces.
+* Added CI, release artifact workflows, a Windows portable package script, and
+  Antora documentation.
+
+Details:
+link:changelog-details/2026-09-09-initial-native-studio.adoc[Initial native
+semantic SVG studio].

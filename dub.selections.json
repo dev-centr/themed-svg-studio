@@ -1,0 +1,11 @@
+{
+	"fileVersion": 1,
+	"versions": {
+		"bindbc-loader": "1.1.5",
+		"bindbc-wgpu": "0.27.0",
+		"dew": "0.1.7",
+		"dui": "0.1.4",
+		"tgc": "0.1.1",
+		"vello-d": "0.1.4"
+	}
+}

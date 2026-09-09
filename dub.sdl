@@ -1,0 +1,58 @@
+name "themed-svg-studio"
+description "Native semantic SVG theme, token, and binding editor"
+authors "Dev-Centr contributors"
+copyright "Copyright © 2026 Dev-Centr contributors"
+license "MIT"
+version "0.1.0"
+homepage "https://docs.devcentr.org/themed-svg-studio/"
+
+dependency "dui" version="~>0.1.4"
+dependency "tgc" version="~>0.1.1"
+
+sourcePaths "source"
+importPaths "source"
+stringImportPaths "."
+versions "Tgc_default"
+
+configuration "library" {
+    targetType "library"
+    targetName "themed-svg-studio"
+    excludedSourceFiles "source/themed_svg_studio/cli_main.d" "source/themed_svg_studio/gui_main.d"
+    subConfiguration "dui" "library"
+    versions "DewHeadless"
+}
+
+configuration "cli" {
+    targetType "executable"
+    targetName "themed-svg-studio-cli"
+    mainSourceFile "source/themed_svg_studio/cli_main.d"
+    excludedSourceFiles "source/themed_svg_studio/gui_main.d"
+    subConfiguration "dui" "library"
+    versions "DewHeadless"
+}
+
+configuration "gui-headless" {
+    targetType "executable"
+    targetName "themed-svg-studio"
+    mainSourceFile "source/themed_svg_studio/gui_main.d"
+    excludedSourceFiles "source/themed_svg_studio/cli_main.d"
+    subConfiguration "dui" "library"
+    versions "DewHeadless" "ThemedSvgStudioHeadless"
+}
+
+configuration "gui" {
+    targetType "executable"
+    targetName "themed-svg-studio"
+    mainSourceFile "source/themed_svg_studio/gui_main.d"
+    excludedSourceFiles "source/themed_svg_studio/cli_main.d"
+    subConfiguration "dui" "library"
+    libs "user32" "gdi32" platform="windows"
+}
+
+configuration "unittest" {
+    targetType "library"
+    sourcePaths "source" "tests"
+    excludedSourceFiles "source/themed_svg_studio/cli_main.d" "source/themed_svg_studio/gui_main.d"
+    subConfiguration "dui" "unittest"
+    versions "DewHeadless"
+}

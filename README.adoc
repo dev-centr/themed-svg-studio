@@ -1,0 +1,106 @@
+ifdef::env-github[]
++++
+<a id="readme-top"></a>
+<div align="center">
+<a href="https://github.com/dev-centr/themed-svg-studio/graphs/contributors"><img src="https://img.shields.io/github/contributors/dev-centr/themed-svg-studio.svg?style=for-the-badge" alt="Contributors"></a>
+<a href="https://github.com/dev-centr/themed-svg-studio/network/members"><img src="https://img.shields.io/github/forks/dev-centr/themed-svg-studio.svg?style=for-the-badge" alt="Forks"></a>
+<a href="https://github.com/dev-centr/themed-svg-studio/stargazers"><img src="https://img.shields.io/github/stars/dev-centr/themed-svg-studio.svg?style=for-the-badge" alt="Stars"></a>
+<a href="https://github.com/dev-centr/themed-svg-studio/issues"><img src="https://img.shields.io/github/issues/dev-centr/themed-svg-studio.svg?style=for-the-badge" alt="Issues"></a>
+<a href="https://github.com/dev-centr/themed-svg-studio/blob/master/LICENSE"><img src="https://img.shields.io/github/license/dev-centr/themed-svg-studio.svg?style=for-the-badge" alt="License"></a>
+<h3 align="center">Themed SVG Studio</h3>
+<p align="center">A native D editor for semantic SVG tokens, presets, and explicit bindings.<br>
+<a href="https://docs.devcentr.org/themed-svg-studio/"><strong>Explore the docs »</strong></a><br><br>
+<a href="https://github.com/dev-centr/themed-svg-studio/issues">Report Bug</a>
+&middot; <a href="https://github.com/dev-centr/themed-svg-studio/issues">Request Feature</a></p>
+</div>
++++
+endif::[]
+
+ifndef::env-github[]
+= Themed SVG Studio
+
+A native D editor for semantic SVG tokens, presets, and explicit bindings.
+endif::[]
+
+:toc:
+:sectanchors:
+
+== About
+
+Themed SVG Studio edits version 1 themed-SVG manifests alongside source SVGs.
+Its scope is semantic theme data: tokens, presets, palette overrides, and
+explicit selector bindings. Geometry editing is intentionally out of scope.
+
+The reusable D library contains the editor model, manifest types, diagnostics,
+undo/redo, and an isolated JSON/JSONL subprocess boundary for
+`@dev-centr/themed-svg`. Protocol version 1 reserves `inspect`, `validate`,
+`transform`, `sanitize`, and `export`.
+
+== Build
+
+[source,powershell]
+----
+dub test -c unittest
+dub build -c cli
+dub build -c gui-headless
+dub build -c gui # native Windows host
+----
+
+All product configurations select TGC. DUI is the application layer over Dew.
+The registry dependency chain uses DUI 0.1.4, Dew 0.1.7, vello-d 0.1.4 where
+the GPU configuration needs it, and TGC 0.1.1.
+
+Install the versioned transformation companion before running previews or
+exports:
+
+[source,powershell]
+----
+npm install --global @dev-centr/themed-svg@0.2.0
+----
+
+== CLI
+
+[source,powershell]
+----
+.\themed-svg-studio-cli.exe smoke
+.\themed-svg-studio-cli.exe validate --svg diagram.svg --manifest diagram.theme.json
+----
+
+The external bridge command defaults to `themed-svg-stdio` from
+`@dev-centr/themed-svg` 0.2.0. Use `--bridge` when testing another executable
+path. The app also honors `THEMED_SVG_STDIO`; on Windows it checks the normal
+per-user npm executable directory when the command is not already on `PATH`.
+
+== Product surfaces
+
+The GUI exposes token, preset, and binding inspectors; source, fixed, light,
+dark, standalone-adaptive, and host previews; About, Help, redacted debug dump,
+and honest update status. v0.1.0 does not claim automatic update application.
+
+== Built with
+
+* *Language and build* — https://dlang.org/[D] and https://dub.pm/[DUB]
+* *Application UI* — https://github.com/dlang-supplemental/dui[DUI] over Dew
+* *Memory runtime* — https://code.dlang.org/packages/tgc[TGC]
+* *Documentation* — https://antora.org/[Antora]
+
+== Documentation
+
+The Antora component under `docs/` follows tutorial, how-to, explanation, and
+reference entry points. It is intended for the DevCentr documentation hub, not
+a second project Pages site.
+
+== Changelog
+
+See link:CHANGELOG.adoc[CHANGELOG.adoc] for the release timeline and linked
+detail records.
+
+== License
+
+The project is MIT licensed. DUI, Dew, and their other dependencies retain
+their respective licenses.
+
+== Contact
+
+Use the https://github.com/dev-centr/themed-svg-studio/issues[issue tracker]
+for product support.

@@ -1,0 +1,21 @@
+= Themed SVG Studio
+:page-audience: SVG authors and theme-system maintainers
+:page-usage-context: product orientation
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+:page-last-edited: 2026-09-09
+
+ifndef::page-context-active[]
+Audience: {page-audience}. Usage: {page-usage-context}. +
+Original author: {page-orig-author}. Last author: {page-last-author}. +
+Last updated: {page-last-edited}.
+endif::[]
+
+Themed SVG Studio is a native D application for editing semantic tokens,
+presets, palette overrides, and explicit SVG selector bindings. It delegates
+structural SVG inspection and transformation to `@dev-centr/themed-svg`.
+
+It does not edit paths, shapes, transforms, or other geometry.
+
+Start with xref:tutorials/first-project.adoc[] or review
+xref:explanation/architecture.adoc[] before embedding the library.

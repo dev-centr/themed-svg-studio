@@ -1,0 +1,26 @@
+= Architecture
+:page-audience: D contributors and SVG tooling integrators
+:page-usage-context: design explanation
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+:page-last-edited: 2026-09-09
+
+ifndef::page-context-active[]
+Audience: {page-audience}. Usage: {page-usage-context}. +
+Original author: {page-orig-author}. Last author: {page-last-author}. +
+Last updated: {page-last-edited}.
+endif::[]
+
+The public library separates four concerns:
+
+* Manifest value types serialize the version 1 semantic contract.
+* The editor model owns file lifecycle, dirty state, diagnostics, preview
+  selection, and DUI snapshot history.
+* Protocol messages describe JSON/JSONL without knowing how a process starts.
+* The adapter starts `@dev-centr/themed-svg`, validates response identity and
+  version, and returns typed diagnostics.
+
+The GUI is built on DUI, which supplies application state and undo helpers over
+the Dew retained-mode renderer. TGC is selected as the D runtime collector.
+Dew's software backend keeps model and composition tests available where
+window or GPU hosting is unavailable.

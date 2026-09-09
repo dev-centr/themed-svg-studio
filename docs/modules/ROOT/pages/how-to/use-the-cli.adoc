@@ -1,0 +1,30 @@
+= Use the CLI
+:page-audience: Build engineers and SVG tooling users
+:page-usage-context: task reference
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+:page-last-edited: 2026-09-09
+
+ifndef::page-context-active[]
+Audience: {page-audience}. Usage: {page-usage-context}. +
+Original author: {page-orig-author}. Last author: {page-last-author}. +
+Last updated: {page-last-edited}.
+endif::[]
+
+Run the internal smoke path:
+
+[source,powershell]
+----
+dub run -c cli -- smoke
+----
+
+Invoke one protocol operation:
+
+[source,powershell]
+----
+dub run -c cli -- validate --svg diagram.svg --manifest diagram.theme.json
+----
+
+Use `inspect`, `validate`, `transform`, `sanitize`, or `export`. `--bridge`
+selects the external executable. `--debug-dump` prints redacted build and
+runtime context and does not include SVG contents or token values.

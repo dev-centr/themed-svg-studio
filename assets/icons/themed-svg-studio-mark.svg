@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="tssMarkTitle tssMarkDesc">
+  <title id="tssMarkTitle">Themed SVG Studio</title>
+  <desc id="tssMarkDesc">App tile: an artboard split into a light surface and a dark surface by a bezier path, with a token swatch anchored on the path in each theme.</desc>
+  <defs>
+    <linearGradient id="tssMarkTile" gradientUnits="userSpaceOnUse" x1="32" y1="0" x2="32" y2="64">
+      <stop offset="0" stop-color="#3A4260"/>
+      <stop offset="1" stop-color="#232A3E"/>
+    </linearGradient>
+    <linearGradient id="tssMarkLight" gradientUnits="userSpaceOnUse" x1="4" y1="4" x2="4" y2="60">
+      <stop offset="0" stop-color="#F8FAFD"/>
+      <stop offset="1" stop-color="#E7EDF6"/>
+    </linearGradient>
+    <linearGradient id="tssMarkDark" gradientUnits="userSpaceOnUse" x1="60" y1="4" x2="60" y2="60">
+      <stop offset="0" stop-color="#1B2231"/>
+      <stop offset="1" stop-color="#080B12"/>
+    </linearGradient>
+    <linearGradient id="tssMarkPath" gradientUnits="userSpaceOnUse" x1="45" y1="4" x2="19" y2="60">
+      <stop offset="0" stop-color="#6C72D8"/>
+      <stop offset="1" stop-color="#35ABA4"/>
+    </linearGradient>
+    <clipPath id="tssMarkBoard">
+      <rect x="4" y="4" width="56" height="56" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <!-- tile -->
+  <rect x="0" y="0" width="64" height="64" rx="14" fill="url(#tssMarkTile)"/>
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="13.4" fill="none" stroke="#5D6B8D" stroke-width="1.5"/>
+
+  <g transform="translate(32 32) scale(0.74) translate(-32 -32)">
+    <!-- artboard, light theme surface -->
+    <rect x="4" y="4" width="56" height="56" rx="12" fill="url(#tssMarkLight)"/>
+
+    <!-- dark theme surface, bounded by the path -->
+    <path d="M45 0 L45 4 C50 16 14 48 19 60 L19 64 L64 64 L64 0 Z" fill="url(#tssMarkDark)" clip-path="url(#tssMarkBoard)"/>
+
+    <!-- the theme boundary is an editable vector path -->
+    <path d="M45 4 C50 16 14 48 19 60" fill="none" stroke="url(#tssMarkPath)" stroke-width="4"/>
+
+    <!-- artboard frame -->
+    <rect x="4" y="4" width="56" height="56" rx="12" fill="none" stroke="#5A6884" stroke-width="2.5"/>
+
+    <!-- one bound token, resolved per theme -->
+    <rect x="37.7" y="8.9" width="11" height="11" rx="2.8" fill="#F8FAFD" stroke="#6C72D8" stroke-width="2.8"/>
+    <rect x="15.3" y="44.1" width="11" height="11" rx="2.8" fill="#10151E" stroke="#35ABA4" stroke-width="2.8"/>
+  </g>
+</svg>

@@ -1,0 +1,6 @@
+* xref:index.adoc[Themed SVG Studio]
+** xref:tutorials/first-project.adoc[Build a first themed SVG project]
+** xref:how-to/use-the-cli.adoc[Use the CLI]
+** xref:explanation/architecture.adoc[Architecture]
+** xref:reference/protocol-v1.adoc[Protocol version 1]
+** xref:changelog.adoc[Changelog]

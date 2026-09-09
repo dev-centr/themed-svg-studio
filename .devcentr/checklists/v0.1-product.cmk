@@ -1,0 +1,35 @@
+---
+title "Themed SVG Studio v0.1 product essentials"
+deliveryClass "desktop"
+status "active"
+docs "https://docs.devcentr.org/general-knowledge/latest/explanation/architecture/software-product-essentials.html"
+---
+
+# Product essentials
+
+## Shared
+
+::: checklist [type="progress" id="shared"]
+[x] Marketing version defined {id="shared.marketing-version"}
+[x] Build id and channel surfaces defined {id="shared.build-id"}
+[x] Changelog and README entry points {id="shared.docs"}
+[x] CI and tag artifact workflows {id="shared.ci"}
+[x] Debug dump redacts document content {id="shared.redaction"}
+:::
+
+## GUI and CLI
+
+::: checklist [type="progress" id="shells"]
+[x] About, Help, debug dump, and update status {id="shells.support"}
+[x] DUI/Dew software/headless composition path {id="shells.headless"}
+[x] Windows native host entry point {id="shells.windows-host"}
+[x] CLI version, help, and smoke path {id="shells.cli"}
+[ ] Signed Windows installer and uninstall entry {id="shells.signed-installer"}
+[ ] Verified package-manager update channel {id="shells.updates"}
+[ ] macOS and Linux native window hosts {id="shells.other-hosts"}
+:::
+
+## Deferred honestly
+
+The v0.1 packaging script creates a portable Windows zip and checksums. It is
+not an installer, is not signed, and does not implement automatic updates.

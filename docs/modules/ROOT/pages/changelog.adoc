@@ -1,0 +1,21 @@
+= Changelog
+:page-audience: Themed SVG Studio users
+:page-usage-context: release history
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+:page-last-edited: 2026-09-09
+
+ifndef::page-context-active[]
+Audience: {page-audience}. Usage: {page-usage-context}. +
+Original author: {page-orig-author}. Last author: {page-last-author}. +
+Last updated: {page-last-edited}.
+endif::[]
+
+== 2026-09-09
+
+Version 0.1.0 established the native semantic SVG editor, reusable D library,
+CLI, DUI/Dew GUI configurations, TGC runtime selection, protocol boundary,
+tests, and delivery documentation.
+
+See the repository
+https://github.com/dev-centr/themed-svg-studio/blob/master/changelog-details/2026-09-09-initial-native-studio.adoc[release detail].

@@ -1,0 +1,34 @@
+= Protocol version 1
+:page-audience: Bridge implementers
+:page-usage-context: wire reference
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+:page-last-edited: 2026-09-09
+
+ifndef::page-context-active[]
+Audience: {page-audience}. Usage: {page-usage-context}. +
+Original author: {page-orig-author}. Last author: {page-last-author}. +
+Last updated: {page-last-edited}.
+endif::[]
+
+Each request and response is one UTF-8 JSON object per line. Both carry
+`protocolVersion: 1` and the request `id`. Responses also echo the operation
+for valid request envelopes.
+
+[cols="1,2"]
+|===
+| Operation | Purpose
+
+| `inspect` | Return SVG structure and literal-color occurrences.
+| `validate` | Validate SVG, manifest, selectors, and palette values.
+| `transform` | Produce one requested preview/output mode.
+| `sanitize` | Return structurally sanitized SVG.
+| `export` | Return a named artifact map for requested delivery modes.
+|===
+
+Responses include `ok`, optional `result`, and `diagnostics`. Transport or
+process failures are reported by the adapter; protocol and operation failures
+remain structured diagnostics.
+The D structs and process launcher intentionally live in separate modules so
+field-level alignment can change without coupling process ownership to the
+editor model.

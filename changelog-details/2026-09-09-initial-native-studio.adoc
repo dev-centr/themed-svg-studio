@@ -1,0 +1,24 @@
+= Initial native semantic SVG studio
+:page-audience: SVG tooling users and D integrators
+:page-usage-context: release detail
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+:page-last-edited: 2026-09-09
+
+The first release establishes a native D workspace for editing semantic SVG
+manifests without changing paths or geometry. The reusable model owns document
+lifecycle, dirty state, snapshot history through DUI helpers, diagnostics, and
+the token, preset, and binding structures shared by the CLI and GUI.
+
+Protocol version 1 is isolated into wire-message and process-adapter modules so
+transport details do not spread through the editor. The five named operations
+are inspect, validate, transform, sanitize, and export. The released
+`@dev-centr/themed-svg` 0.2.0 JSONL executable is exercised in CI.
+
+The GUI has a buildable Windows host and a Dew software/headless path for CI.
+Its semantic editor changes preset token values and adds explicit presentation
+bindings without exposing geometry editing. TGC is selected for all product
+configurations through the released DUI 0.1.4 and Dew 0.1.7 chain. Automatic
+update installation,
+signed installers, and non-Windows native window hosts are explicitly not
+claimed by this release.

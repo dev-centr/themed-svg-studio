@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="tssGlyphTitle tssGlyphDesc">
+  <title id="tssGlyphTitle">Themed SVG Studio</title>
+  <desc id="tssGlyphDesc">An artboard split into a light surface and a dark surface by a bezier path, with a token swatch anchored on the path in each theme: a light swatch on the dark side and a dark swatch on the light side.</desc>
+  <defs>
+    <linearGradient id="tssGlyphLight" gradientUnits="userSpaceOnUse" x1="4" y1="4" x2="4" y2="60">
+      <stop offset="0" stop-color="#F8FAFD"/>
+      <stop offset="1" stop-color="#E7EDF6"/>
+    </linearGradient>
+    <linearGradient id="tssGlyphDark" gradientUnits="userSpaceOnUse" x1="60" y1="4" x2="60" y2="60">
+      <stop offset="0" stop-color="#222A39"/>
+      <stop offset="1" stop-color="#0D111A"/>
+    </linearGradient>
+    <linearGradient id="tssGlyphPath" gradientUnits="userSpaceOnUse" x1="45" y1="4" x2="19" y2="60">
+      <stop offset="0" stop-color="#5B61C9"/>
+      <stop offset="1" stop-color="#2F9C96"/>
+    </linearGradient>
+    <clipPath id="tssGlyphBoard">
+      <rect x="4" y="4" width="56" height="56" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <!-- artboard, light theme surface -->
+  <rect x="4" y="4" width="56" height="56" rx="12" fill="url(#tssGlyphLight)"/>
+
+  <!-- dark theme surface, bounded by the path -->
+  <path d="M45 0 L45 4 C50 16 14 48 19 60 L19 64 L64 64 L64 0 Z" fill="url(#tssGlyphDark)" clip-path="url(#tssGlyphBoard)"/>
+
+  <!-- the theme boundary is an editable vector path -->
+  <path d="M45 4 C50 16 14 48 19 60" fill="none" stroke="url(#tssGlyphPath)" stroke-width="4"/>
+
+  <!-- artboard frame -->
+  <rect x="4" y="4" width="56" height="56" rx="12" fill="none" stroke="#333D53" stroke-width="2.5"/>
+
+  <!-- one bound token, resolved per theme -->
+  <rect x="37.7" y="8.9" width="11" height="11" rx="2.8" fill="#F8FAFD" stroke="#5B61C9" stroke-width="2.8"/>
+  <rect x="15.3" y="44.1" width="11" height="11" rx="2.8" fill="#11161F" stroke="#35ABA4" stroke-width="2.8"/>
+</svg>

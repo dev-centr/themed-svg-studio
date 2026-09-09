@@ -1,0 +1,23 @@
+= Build a first themed SVG project
+:page-audience: First-time Themed SVG Studio users
+:page-usage-context: guided learning
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+:page-last-edited: 2026-09-09
+
+ifndef::page-context-active[]
+Audience: {page-audience}. Usage: {page-usage-context}. +
+Original author: {page-orig-author}. Last author: {page-last-author}. +
+Last updated: {page-last-edited}.
+endif::[]
+
+. Build the software-only GUI with `dub build -c gui-headless`.
+. Build the CLI with `dub build -c cli`.
+. Keep an SVG and its version 1 manifest together.
+. Run `themed-svg-studio-cli validate --svg diagram.svg --manifest
+  diagram.theme.json`.
+. Open both paths in the GUI and edit tokens, presets, or bindings.
+. Export concrete artifacts only after diagnostics report no errors.
+
+The source SVG remains the geometry authority. Studio changes semantic
+bindings and palette data only.

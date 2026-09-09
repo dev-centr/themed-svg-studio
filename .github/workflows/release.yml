@@ -1,0 +1,74 @@
+name: Release artifacts
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - triplet: windows-x64
+            os: windows-latest
+            compiler: ldc-latest
+          - triplet: linux-x64
+            os: ubuntu-latest
+            compiler: ldc-latest
+          - triplet: linux-arm64
+            os: ubuntu-24.04-arm
+            compiler: ldc-latest
+          - triplet: macos-arm64
+            os: macos-14
+            compiler: ldc-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dlang-community/setup-dlang@v2
+        with:
+          compiler: ${{ matrix.compiler }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - run: npm install --global @dev-centr/themed-svg@0.2.0
+      - run: dub test -c unittest
+      - run: dub build -c cli --build=release
+      - run: dub build -c gui-headless --build=release
+      - if: runner.os == 'Windows'
+        run: dub build -c gui --build=release
+      - if: runner.os == 'Windows'
+        run: .\themed-svg-studio-cli.exe transform --svg tests\fixtures\sample.svg --manifest tests\fixtures\sample.theme.json
+      - if: runner.os != 'Windows'
+        run: ./themed-svg-studio-cli transform --svg tests/fixtures/sample.svg --manifest tests/fixtures/sample.theme.json
+      - shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force "artifact"
+          Get-ChildItem -File themed-svg-studio* | Copy-Item -Destination "artifact"
+          Copy-Item README.adoc,CHANGELOG.adoc,LICENSE,VERSION -Destination "artifact"
+          Compress-Archive -Path artifact/* -DestinationPath "themed-svg-studio-${{ matrix.triplet }}.zip"
+          (Get-FileHash "themed-svg-studio-${{ matrix.triplet }}.zip" -Algorithm SHA256).Hash.ToLower() |
+            Set-Content "themed-svg-studio-${{ matrix.triplet }}.zip.sha256"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: themed-svg-studio-${{ matrix.triplet }}
+          path: |
+            themed-svg-studio-${{ matrix.triplet }}.zip
+            themed-svg-studio-${{ matrix.triplet }}.zip.sha256
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/*
+          generate_release_notes: true

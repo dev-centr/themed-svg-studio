@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" role="img" aria-labelledby="tssMonoTitle tssMonoDesc">
+  <title id="tssMonoTitle">Themed SVG Studio</title>
+  <desc id="tssMonoDesc">Monochrome mark: an artboard frame containing a bezier path that runs between two anchored token points.</desc>
+
+  <!-- artboard frame -->
+  <rect x="4" y="4" width="56" height="56" rx="12" stroke-width="4"/>
+
+  <!-- theme path, terminating at both tokens -->
+  <path d="M43.22 14.4 C38.14 24.96 25.86 39.04 20.78 49.6" stroke-width="3.5"/>
+
+  <!-- bound tokens -->
+  <rect x="37.72" y="8.9" width="11" height="11" rx="2" fill="currentColor" stroke="none"/>
+  <rect x="15.28" y="44.1" width="11" height="11" rx="2" fill="currentColor" stroke="none"/>
+</svg>

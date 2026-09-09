@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+        compiler: [dmd-latest, ldc-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dlang-community/setup-dlang@v2
+        with:
+          compiler: ${{ matrix.compiler }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - run: npm install --global @dev-centr/themed-svg@0.2.0
+      - run: dub test -c unittest
+      - run: dub build -c cli --build=release
+      - run: dub build -c gui-headless --build=release
+      - if: runner.os == 'Windows'
+        run: dub build -c gui --build=release
+      - if: runner.os == 'Windows'
+        run: .\themed-svg-studio-cli.exe smoke
+      - if: runner.os == 'Windows'
+        run: .\themed-svg-studio-cli.exe transform --svg tests\fixtures\sample.svg --manifest tests\fixtures\sample.theme.json
+      - if: runner.os != 'Windows'
+        run: ./themed-svg-studio-cli smoke
+      - if: runner.os != 'Windows'
+        run: ./themed-svg-studio-cli transform --svg tests/fixtures/sample.svg --manifest tests/fixtures/sample.theme.json

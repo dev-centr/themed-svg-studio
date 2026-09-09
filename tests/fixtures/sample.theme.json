@@ -1,0 +1,28 @@
+{
+  "$schema": "https://docs.devcentr.org/themed-svg/schemas/themed-svg-manifest-v1.schema.json",
+  "schemaVersion": 1,
+  "namespace": "studio-sample",
+  "tokens": [
+    {
+      "id": "color.surface",
+      "description": "Sample surface color"
+    }
+  ],
+  "defaultPreset": "light",
+  "presets": {
+    "light": {
+      "color.surface": "#f4f1ea"
+    },
+    "dark": {
+      "color.surface": "#242733"
+    }
+  },
+  "bindings": [
+    {
+      "kind": "presentation",
+      "token": "color.surface",
+      "selector": "#surface",
+      "attribute": "fill"
+    }
+  ]
+}
