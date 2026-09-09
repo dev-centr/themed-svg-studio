@@ -67,7 +67,7 @@ npm install --global @dev-centr/themed-svg@0.2.1
 ----
 
 The external bridge command defaults to `themed-svg-stdio` from
-`@dev-centr/themed-svg` 0.2.0. Use `--bridge` when testing another executable
+`@dev-centr/themed-svg` 0.2.1. Use `--bridge` when testing another executable
 path. The app also honors `THEMED_SVG_STDIO`; on Windows it checks the normal
 per-user npm executable directory when the command is not already on `PATH`.
 
