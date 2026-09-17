@@ -9,7 +9,7 @@ ifdef::env-github[]
 <a href="https://github.com/dev-centr/themed-svg-studio/blob/master/LICENSE"><img src="https://img.shields.io/github/license/dev-centr/themed-svg-studio.svg?style=for-the-badge" alt="License"></a>
 <h3 align="center">Themed SVG Studio</h3>
 <p align="center">A native D editor for semantic SVG tokens, presets, and explicit bindings.<br>
-<a href="https://docs.devcentr.org/themed-svg-studio/"><strong>Explore the docs »</strong></a><br><br>
+<a href="https://docs.devcentr.org/tools/themed-svg-studio/"><strong>Explore the docs »</strong></a><br><br>
 <a href="https://github.com/dev-centr/themed-svg-studio/issues">Report Bug</a>
 &middot; <a href="https://github.com/dev-centr/themed-svg-studio/issues">Request Feature</a></p>
 </div>
