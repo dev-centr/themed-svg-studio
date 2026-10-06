@@ -28,11 +28,11 @@ jobs:
             compiler: ldc-latest
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: dlang-community/setup-dlang@v2
         with:
           compiler: ${{ matrix.compiler }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "24"
       - run: npm install --global @dev-centr/themed-svg@0.2.1
@@ -53,7 +53,7 @@ jobs:
           Compress-Archive -Path artifact/* -DestinationPath "themed-svg-studio-${{ matrix.triplet }}.zip"
           (Get-FileHash "themed-svg-studio-${{ matrix.triplet }}.zip" -Algorithm SHA256).Hash.ToLower() |
             Set-Content "themed-svg-studio-${{ matrix.triplet }}.zip.sha256"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: themed-svg-studio-${{ matrix.triplet }}
           path: |
@@ -64,11 +64,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           path: artifacts
           merge-multiple: true
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v3
         with:
           files: artifacts/*
           generate_release_notes: true

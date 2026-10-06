@@ -16,11 +16,11 @@ jobs:
         compiler: [dmd-latest, ldc-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: dlang-community/setup-dlang@v2
         with:
           compiler: ${{ matrix.compiler }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "24"
       - run: npm install --global @dev-centr/themed-svg@0.2.1
