@@ -39,3 +39,5 @@
 **/*.log
 **/*.tmp
 **/*.user.sdl
+!/.editorconfig
+!/.gitattributes
