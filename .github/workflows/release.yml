@@ -59,6 +59,7 @@ jobs:
           path: |
             themed-svg-studio-${{ matrix.triplet }}.zip
             themed-svg-studio-${{ matrix.triplet }}.zip.sha256
+          retention-days: 1
 
   publish:
     needs: build
